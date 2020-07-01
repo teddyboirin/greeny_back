@@ -237,7 +237,7 @@ class __TwigTemplate_9627d2a784dd2eea0cddc8ec442877219629e91464ba991f3d0fe96a9eb
                 } else {
                     // line 144
                     echo "                                            ";
-                    echo twig_var_dump($this->env, $context, ...[0 => $context["filter"]]);
+                    echo twig_escape_filter($this->env, twig_var_dump($this->env, $context, ...[0 => $context["filter"]]), "html", null, true);
                     echo "
                                         ";
                 }
@@ -829,6 +829,6 @@ $context["answer"] === false)) {
         </div>
     {% endif %}
 {% endblock %}
-", "@ApiPlatform/DataCollector/request.html.twig", "/Users/teddyboirin/Desktop/greeny2/vendor/api-platform/core/src/Bridge/Symfony/Bundle/Resources/views/DataCollector/request.html.twig");
+", "@ApiPlatform/DataCollector/request.html.twig", "/Users/Hetic/Desktop/greeny_back/vendor/api-platform/core/src/Bridge/Symfony/Bundle/Resources/views/DataCollector/request.html.twig");
     }
 }

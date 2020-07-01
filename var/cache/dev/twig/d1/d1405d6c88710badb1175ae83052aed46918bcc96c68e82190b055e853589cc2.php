@@ -393,6 +393,6 @@ class __TwigTemplate_415da18044222bbb73b2a3d33c012614401d20ec628aa789cfef3e6b34a
 
 </body>
 </html>
-", "@ApiPlatform/SwaggerUi/index.html.twig", "/Users/teddyboirin/Desktop/greeny2/vendor/api-platform/core/src/Bridge/Symfony/Bundle/Resources/views/SwaggerUi/index.html.twig");
+", "@ApiPlatform/SwaggerUi/index.html.twig", "/Users/Hetic/Desktop/greeny_back/vendor/api-platform/core/src/Bridge/Symfony/Bundle/Resources/views/SwaggerUi/index.html.twig");
     }
 }

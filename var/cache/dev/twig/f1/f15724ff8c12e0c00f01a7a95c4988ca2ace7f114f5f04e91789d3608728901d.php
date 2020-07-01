@@ -471,6 +471,6 @@ class __TwigTemplate_56716ff392c201a3c60b5f003f69240954f7db12098d30327b2c28a521f
         </div>
     {% endif %}
 {% endblock %}
-", "@WebProfiler/Collector/twig.html.twig", "/Users/teddyboirin/Desktop/greeny2/vendor/symfony/web-profiler-bundle/Resources/views/Collector/twig.html.twig");
+", "@WebProfiler/Collector/twig.html.twig", "/Users/Hetic/Desktop/greeny_back/vendor/symfony/web-profiler-bundle/Resources/views/Collector/twig.html.twig");
     }
 }

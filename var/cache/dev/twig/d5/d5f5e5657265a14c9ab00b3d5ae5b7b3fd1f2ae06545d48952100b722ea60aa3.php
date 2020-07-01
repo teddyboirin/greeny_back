@@ -1882,6 +1882,6 @@ class __TwigTemplate_2d95269b6fa5718a17d0d58d3b452504e78aecce38e1d9dd677e5cf6b1d
         </tbody>
     </table>
 {% endmacro %}
-", "@Doctrine/Collector/db.html.twig", "/Users/teddyboirin/Desktop/greeny2/vendor/doctrine/doctrine-bundle/Resources/views/Collector/db.html.twig");
+", "@Doctrine/Collector/db.html.twig", "/Users/Hetic/Desktop/greeny_back/vendor/doctrine/doctrine-bundle/Resources/views/Collector/db.html.twig");
     }
 }
