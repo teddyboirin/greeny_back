@@ -282,7 +282,7 @@
     <parameter key="api_platform.collection.exists_parameter_name">exists</parameter>
     <parameter key="api_platform.collection.order">ASC</parameter>
     <parameter key="api_platform.collection.order_parameter_name">order</parameter>
-    <parameter key="api_platform.collection.pagination.enabled">true</parameter>
+    <parameter key="api_platform.collection.pagination.enabled">false</parameter>
     <parameter key="api_platform.collection.pagination.partial">false</parameter>
     <parameter key="api_platform.collection.pagination.client_enabled">false</parameter>
     <parameter key="api_platform.collection.pagination.client_items_per_page">false</parameter>
@@ -294,7 +294,7 @@
     <parameter key="api_platform.collection.pagination.items_per_page_parameter_name">itemsPerPage</parameter>
     <parameter key="api_platform.collection.pagination.partial_parameter_name">partial</parameter>
     <parameter key="api_platform.collection.pagination" type="collection">
-      <parameter key="enabled">true</parameter>
+      <parameter key="enabled">false</parameter>
       <parameter key="partial">false</parameter>
       <parameter key="client_enabled">false</parameter>
       <parameter key="client_items_per_page">false</parameter>
@@ -4225,10 +4225,14 @@
     </service>
     <service id="api_platform.filter_locator" class="Symfony\Component\DependencyInjection\ServiceLocator" public="false">
       <tag name="container.service_locator"/>
-      <argument type="collection"/>
+      <argument type="collection">
+        <argument key="annotated_app_entity_defis_api_platform_core_bridge_doctrine_orm_filter_search_filter" type="service" id="annotated_app_entity_defis_api_platform_core_bridge_doctrine_orm_filter_search_filter"/>
+      </argument>
     </service>
     <service id="api_platform.filter_collection_factory" class="ApiPlatform\Core\Api\FilterCollectionFactory" public="false">
-      <argument type="collection"/>
+      <argument type="collection">
+        <argument>annotated_app_entity_defis_api_platform_core_bridge_doctrine_orm_filter_search_filter</argument>
+      </argument>
     </service>
     <service id="api_platform.filters" class="ApiPlatform\Core\Api\FilterCollection" public="false">
       <argument type="service" id="api_platform.filter_locator"/>
@@ -5055,6 +5059,19 @@
     <service id="lexik_jwt_authentication.security.jwt_user_provider" class="Lexik\Bundle\JWTAuthenticationBundle\Security\User\JWTUserProvider" public="false">
       <argument></argument>
     </service>
+    <service id="annotated_app_entity_defis_api_platform_core_bridge_doctrine_orm_filter_search_filter" class="ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter" public="false" autowire="true">
+      <tag name="api_platform.filter"/>
+      <argument type="service" id="doctrine"/>
+      <argument>null</argument>
+      <argument type="service" id="api_platform.iri_converter"/>
+      <argument type="service" id="property_accessor"/>
+      <argument type="service" id="logger" on-invalid="ignore"/>
+      <argument type="collection">
+        <argument key="categorie">exact</argument>
+      </argument>
+      <argument type="service" id="api_platform.identifiers_extractor.cached" on-invalid="ignore"/>
+      <argument type="service" id="serializer.name_converter.metadata_aware" on-invalid="ignore"/>
+    </service>
     <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" abstract="true"/>
     <service id=".abstract.instanceof.App\DataFixtures\AppFixtures" class="App\DataFixtures\AppFixtures" autowire="true" autoconfigure="true" abstract="true"/>
     <service id=".instanceof.Doctrine\Bundle\FixturesBundle\ORMFixtureInterface.0.App\DataFixtures\UserFixtures" class="App\DataFixtures\UserFixtures" autowire="true" abstract="true"/>
@@ -5592,7 +5609,7 @@
       <argument type="collection"/>
       <argument type="collection"/>
       <argument type="service" id="api_platform.subresource_operation_factory.cached"/>
-      <argument>true</argument>
+      <argument>false</argument>
       <argument>page</argument>
       <argument>false</argument>
       <argument>itemsPerPage</argument>
@@ -6080,7 +6097,7 @@
     <service id="api_platform.name_converter" alias="serializer.name_converter.metadata_aware"/>
     <service id="Psr\Log\LoggerInterface" alias="logger" public="false"/>
     <service id=".service_locator.86xOqEA" alias="api_platform.serializer_locator" public="false"/>
-    <service id=".service_locator..jzzP5u" alias="api_platform.filter_locator" public="false"/>
+    <service id=".service_locator.WZbja3D" alias="api_platform.filter_locator" public="false"/>
     <service id=".service_locator.AjmrG8B" alias=".service_locator.Xl5XdWY" public="false"/>
     <service id="validator" alias="debug.validator" public="true"/>
     <service id="api_platform.metadata.property.metadata_factory.property_info.inner" alias="api_platform.metadata.property.metadata_factory.xml" public="false"/>
