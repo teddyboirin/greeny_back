@@ -6,6 +6,8 @@ use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use App\Repository\DefisRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -46,6 +48,22 @@ class Defis
      * @ORM\Column(type="string", length=255)
      */
     private $categorie;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="accomplished")
+     */
+    private $users;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="defis")
+     */
+    private $waiting;
+
+    public function __construct()
+    {
+        $this->users = new ArrayCollection();
+        $this->waiting = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -108,6 +126,60 @@ class Defis
     public function setCategorie(string $categorie): self
     {
         $this->catégorie = $categorie;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getUsers(): Collection
+    {
+        return $this->users;
+    }
+
+    public function addUser(User $user): self
+    {
+        if (!$this->users->contains($user)) {
+            $this->users[] = $user;
+            $user->addAccomplished($this);
+        }
+
+        return $this;
+    }
+
+    public function removeUser(User $user): self
+    {
+        if ($this->users->contains($user)) {
+            $this->users->removeElement($user);
+            $user->removeAccomplished($this);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|User[]
+     */
+    public function getWaiting(): Collection
+    {
+        return $this->waiting;
+    }
+
+    public function addWaiting(User $waiting): self
+    {
+        if (!$this->waiting->contains($waiting)) {
+            $this->waiting[] = $waiting;
+        }
+
+        return $this;
+    }
+
+    public function removeWaiting(User $waiting): self
+    {
+        if ($this->waiting->contains($waiting)) {
+            $this->waiting->removeElement($waiting);
+        }
 
         return $this;
     }

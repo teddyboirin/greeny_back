@@ -4,6 +4,8 @@ namespace App\Entity;
 
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\UserRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\Security\Core\User\UserInterface;
 
@@ -50,6 +52,22 @@ class User implements UserInterface
      * @ORM\Column(type="string", length=255)
      */
     private $points;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Defis::class, inversedBy="users")
+     */
+    private $accomplished;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Defis::class, mappedBy="waiting")
+     */
+    private $defis;
+
+    public function __construct()
+    {
+        $this->accomplished = new ArrayCollection();
+        $this->defis = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -161,6 +179,60 @@ class User implements UserInterface
     public function setPoints(string $points): self
     {
         $this->points = $points;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Defis[]
+     */
+    public function getAccomplished(): Collection
+    {
+        return $this->accomplished;
+    }
+
+    public function addAccomplished(Defis $accomplished): self
+    {
+        if (!$this->accomplished->contains($accomplished)) {
+            $this->accomplished[] = $accomplished;
+        }
+
+        return $this;
+    }
+
+    public function removeAccomplished(Defis $accomplished): self
+    {
+        if ($this->accomplished->contains($accomplished)) {
+            $this->accomplished->removeElement($accomplished);
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Defis[]
+     */
+    public function getDefis(): Collection
+    {
+        return $this->defis;
+    }
+
+    public function addDefi(Defis $defi): self
+    {
+        if (!$this->defis->contains($defi)) {
+            $this->defis[] = $defi;
+            $defi->addWaiting($this);
+        }
+
+        return $this;
+    }
+
+    public function removeDefi(Defis $defi): self
+    {
+        if ($this->defis->contains($defi)) {
+            $this->defis->removeElement($defi);
+            $defi->removeWaiting($this);
+        }
 
         return $this;
     }
