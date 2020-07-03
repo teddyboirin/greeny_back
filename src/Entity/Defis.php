@@ -33,11 +33,6 @@ class Defis
     private $points;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $description;
-
-    /**
      * @ORM\Column(type="boolean")
      */
     private $recurrence;
@@ -77,18 +72,6 @@ class Defis
     public function setPoints(int $points): self
     {
         $this->points = $points;
-
-        return $this;
-    }
-
-    public function getDescription(): ?string
-    {
-        return $this->description;
-    }
-
-    public function setDescription(string $description): self
-    {
-        $this->description = $description;
 
         return $this;
     }
