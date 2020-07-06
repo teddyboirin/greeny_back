@@ -227,6 +227,6 @@ class __TwigTemplate_b8699f9a9333f111fef92f1741e2f941bf44e870dccf803c93f433aafc8
         </div>
     {% endif %}
 {% endblock %}
-", "@WebProfiler/Collector/exception.html.twig", "/Users/Hetic/Desktop/greeny_back/vendor/symfony/web-profiler-bundle/Resources/views/Collector/exception.html.twig");
+", "@WebProfiler/Collector/exception.html.twig", "/Users/teddyboirin/Desktop/greeny_back/vendor/symfony/web-profiler-bundle/Resources/views/Collector/exception.html.twig");
     }
 }

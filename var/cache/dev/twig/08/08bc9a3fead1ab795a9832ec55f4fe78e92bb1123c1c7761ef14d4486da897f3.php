@@ -168,6 +168,6 @@ class __TwigTemplate_2e51569baa364e113c11fb908bde5dd226362be16b69bedc11d3923eaa6
 
     {{ include('@WebProfiler/Profiler/toolbar_item.html.twig', { link: false }) }}
 {% endblock %}
-", "@WebProfiler/Collector/ajax.html.twig", "/Users/Hetic/Desktop/greeny_back/vendor/symfony/web-profiler-bundle/Resources/views/Collector/ajax.html.twig");
+", "@WebProfiler/Collector/ajax.html.twig", "/Users/teddyboirin/Desktop/greeny_back/vendor/symfony/web-profiler-bundle/Resources/views/Collector/ajax.html.twig");
     }
 }
