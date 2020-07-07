@@ -16,7 +16,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
             'itemOperations' => [
                 [
                     'post_publication' => [
-                        'method' => 'GET',
+                        'method' => 'POST',
                         'path' => '/users/{id}/defis',
                         'controller' => 'App\\Controller\\AccomplishedDefis',
                         'input' => null,

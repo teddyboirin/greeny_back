@@ -20,7 +20,7 @@ use Symfony\Component\Security\Core\User\UserInterface;
  *
  *     itemOperations={
  *          "post_publication"={
- *              "method"="GET",
+ *              "method"="POST",
  *              "path"="/users/{id}/defis",
  *              "controller"=App\Controller\AccomplishedDefis::class,
  *          },

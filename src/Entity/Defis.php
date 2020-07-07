@@ -9,7 +9,8 @@ use App\Repository\DefisRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ * )
  * @ApiFilter(SearchFilter::class, properties={"categorie": "exact"})
  * @ORM\Entity(repositoryClass=DefisRepository::class)
  */

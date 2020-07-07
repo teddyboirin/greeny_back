@@ -105,7 +105,7 @@ return [
             [['_route' => 'api_users_get_collection', '_controller' => 'api_platform.action.get_collection', '_format' => null, '_api_resource_class' => 'App\\Entity\\User', '_api_collection_operation_name' => 'get'], ['_format'], ['GET' => 0], null, false, true, null],
             [['_route' => 'api_users_post_collection', '_controller' => 'api_platform.action.post_collection', '_format' => null, '_api_resource_class' => 'App\\Entity\\User', '_api_collection_operation_name' => 'post'], ['_format'], ['POST' => 0], null, false, true, null],
         ],
-        490 => [[['_route' => 'api_users_post_publication_item', '_controller' => 'App\\Controller\\AccomplishedDefis', '_format' => null, '_api_resource_class' => 'App\\Entity\\User', '_api_item_operation_name' => 'post_publication'], ['id'], ['GET' => 0], null, false, false, null]],
+        490 => [[['_route' => 'api_users_post_publication_item', '_controller' => 'App\\Controller\\AccomplishedDefis', '_format' => null, '_api_resource_class' => 'App\\Entity\\User', '_api_item_operation_name' => 'post_publication'], ['id'], ['POST' => 0], null, false, false, null]],
         526 => [
             [['_route' => 'api_users_get_item', '_controller' => 'api_platform.action.get_item', '_format' => null, '_api_resource_class' => 'App\\Entity\\User', '_api_item_operation_name' => 'get'], ['id', '_format'], ['GET' => 0], null, false, true, null],
             [['_route' => 'api_users_put_item', '_controller' => 'api_platform.action.put_item', '_format' => null, '_api_resource_class' => 'App\\Entity\\User', '_api_item_operation_name' => 'put'], ['id', '_format'], ['PUT' => 0], null, false, true, null],
