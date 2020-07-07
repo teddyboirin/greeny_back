@@ -7,10 +7,30 @@ use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use phpDocumentor\Reflection\Types\Integer;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * @ApiResource()
+ * @ApiResource(
+ *
+ *     collectionOperations={
+ *          "get"={},
+ *          "post"={},
+ *     },
+ *
+ *     itemOperations={
+ *          "post_publication"={
+ *              "method"="GET",
+ *              "path"="/users/{id}/defis",
+ *              "controller"=App\Controller\AccomplishedDefis::class,
+ *          },
+ *          "get"={},
+ *          "put"={},
+ *          "delete"={},
+ *          "patch"={}
+ *     }
+ * )
+ *
  * @ORM\Entity(repositoryClass=UserRepository::class)
  */
 class User implements UserInterface
@@ -49,25 +69,15 @@ class User implements UserInterface
     private $nom;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="integer")
      */
     private $points;
 
     /**
-     * @ORM\ManyToMany(targetEntity=Defis::class, inversedBy="users")
+     * @ORM\Column(type="string", length=255)
      */
-    private $accomplished;
+    private $image;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=Defis::class, mappedBy="waiting")
-     */
-    private $defis;
-
-    public function __construct()
-    {
-        $this->accomplished = new ArrayCollection();
-        $this->defis = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -171,68 +181,14 @@ class User implements UserInterface
         return $this;
     }
 
-    public function getPoints(): ?string
+    public function getPoints(): ?int
     {
         return $this->points;
     }
 
-    public function setPoints(string $points): self
+    public function setPoints(int $points): self
     {
         $this->points = $points;
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Defis[]
-     */
-    public function getAccomplished(): Collection
-    {
-        return $this->accomplished;
-    }
-
-    public function addAccomplished(Defis $accomplished): self
-    {
-        if (!$this->accomplished->contains($accomplished)) {
-            $this->accomplished[] = $accomplished;
-        }
-
-        return $this;
-    }
-
-    public function removeAccomplished(Defis $accomplished): self
-    {
-        if ($this->accomplished->contains($accomplished)) {
-            $this->accomplished->removeElement($accomplished);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|Defis[]
-     */
-    public function getDefis(): Collection
-    {
-        return $this->defis;
-    }
-
-    public function addDefi(Defis $defi): self
-    {
-        if (!$this->defis->contains($defi)) {
-            $this->defis[] = $defi;
-            $defi->addWaiting($this);
-        }
-
-        return $this;
-    }
-
-    public function removeDefi(Defis $defi): self
-    {
-        if ($this->defis->contains($defi)) {
-            $this->defis->removeElement($defi);
-            $defi->removeWaiting($this);
-        }
 
         return $this;
     }

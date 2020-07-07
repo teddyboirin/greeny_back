@@ -33,3 +33,4 @@ final class Version20200703145636 extends AbstractMigration
         $this->addSql('DROP TABLE defis_user');
     }
 }
+

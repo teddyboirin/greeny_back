@@ -1,0 +1,3 @@
+<?php //route_name_c6b095bfca8087bb382a5385c899fcb2
+
+return [PHP_INT_MAX, 'api_defis_get_collection'];

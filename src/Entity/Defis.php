@@ -6,8 +6,6 @@ use ApiPlatform\Core\Annotation\ApiFilter;
 use ApiPlatform\Core\Annotation\ApiResource;
 use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
 use App\Repository\DefisRepository;
-use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -50,20 +48,10 @@ class Defis
     private $categorie;
 
     /**
-     * @ORM\ManyToMany(targetEntity=User::class, mappedBy="accomplished")
+     * @ORM\Column(type="string", length=255)
      */
-    private $users;
+    private $niveau;
 
-    /**
-     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="defis")
-     */
-    private $waiting;
-
-    public function __construct()
-    {
-        $this->users = new ArrayCollection();
-        $this->waiting = new ArrayCollection();
-    }
 
     public function getId(): ?int
     {
@@ -130,56 +118,15 @@ class Defis
         return $this;
     }
 
-    /**
-     * @return Collection|User[]
-     */
-    public function getUsers(): Collection
+
+    public function getNiveau(): ?string
     {
-        return $this->users;
+        return $this->niveau;
     }
 
-    public function addUser(User $user): self
+    public function setNiveau(string $niveau): self
     {
-        if (!$this->users->contains($user)) {
-            $this->users[] = $user;
-            $user->addAccomplished($this);
-        }
-
-        return $this;
-    }
-
-    public function removeUser(User $user): self
-    {
-        if ($this->users->contains($user)) {
-            $this->users->removeElement($user);
-            $user->removeAccomplished($this);
-        }
-
-        return $this;
-    }
-
-    /**
-     * @return Collection|User[]
-     */
-    public function getWaiting(): Collection
-    {
-        return $this->waiting;
-    }
-
-    public function addWaiting(User $waiting): self
-    {
-        if (!$this->waiting->contains($waiting)) {
-            $this->waiting[] = $waiting;
-        }
-
-        return $this;
-    }
-
-    public function removeWaiting(User $waiting): self
-    {
-        if ($this->waiting->contains($waiting)) {
-            $this->waiting->removeElement($waiting);
-        }
+        $this->niveau = $niveau;
 
         return $this;
     }
