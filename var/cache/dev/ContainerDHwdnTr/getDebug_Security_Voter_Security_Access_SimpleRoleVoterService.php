@@ -1,10 +1,6 @@
 <?php
 
-<<<<<<< HEAD:var/cache/dev/ContainerDHwdnTr/getDebug_Security_Voter_Security_Access_SimpleRoleVoterService.php
 namespace ContainerDHwdnTr;
-=======
-namespace ContainerToHWxcP;
->>>>>>> 224edc0a883c202bdaa54fa3d75deca233237923:var/cache/dev/ContainerToHWxcP/getDebug_Security_Voter_Security_Access_SimpleRoleVoterService.php
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;

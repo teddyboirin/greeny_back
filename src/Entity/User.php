@@ -73,12 +73,6 @@ class User implements UserInterface
      */
     private $points;
 
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $image;
-
-
     public function getId(): ?int
     {
         return $this->id;

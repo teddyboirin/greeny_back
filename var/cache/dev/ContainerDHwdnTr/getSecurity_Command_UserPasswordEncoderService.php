@@ -1,10 +1,6 @@
 <?php
 
-<<<<<<< HEAD:var/cache/dev/ContainerDHwdnTr/getSecurity_Command_UserPasswordEncoderService.php
 namespace ContainerDHwdnTr;
-=======
-namespace ContainerToHWxcP;
->>>>>>> 224edc0a883c202bdaa54fa3d75deca233237923:var/cache/dev/ContainerToHWxcP/getSecurity_Command_UserPasswordEncoderService.php
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;

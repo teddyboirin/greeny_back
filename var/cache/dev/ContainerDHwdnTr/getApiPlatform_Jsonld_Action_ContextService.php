@@ -1,10 +1,6 @@
 <?php
 
-<<<<<<< HEAD:var/cache/dev/ContainerDHwdnTr/getApiPlatform_Jsonld_Action_ContextService.php
 namespace ContainerDHwdnTr;
-=======
-namespace ContainerToHWxcP;
->>>>>>> 224edc0a883c202bdaa54fa3d75deca233237923:var/cache/dev/ContainerToHWxcP/getApiPlatform_Jsonld_Action_ContextService.php
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;

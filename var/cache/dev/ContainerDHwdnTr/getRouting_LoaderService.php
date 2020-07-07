@@ -1,10 +1,6 @@
 <?php
 
-<<<<<<< HEAD:var/cache/dev/ContainerDHwdnTr/getRouting_LoaderService.php
 namespace ContainerDHwdnTr;
-=======
-namespace ContainerToHWxcP;
->>>>>>> 224edc0a883c202bdaa54fa3d75deca233237923:var/cache/dev/ContainerToHWxcP/getRouting_LoaderService.php
 
 use Symfony\Component\DependencyInjection\Argument\RewindableGenerator;
 use Symfony\Component\DependencyInjection\Exception\RuntimeException;
