@@ -9,4 +9,4 @@ Composants : Doctrine / ApiPlatform
 #Modèle Physique des Données 
 
 
-![alt text](https://github.com/teddyboirin/greeny_back/mpd.png?raw=true)
+![alt text](https://github.com/teddyboirin/greeny_back/mpd.png)
