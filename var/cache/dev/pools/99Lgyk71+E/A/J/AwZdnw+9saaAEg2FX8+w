@@ -10,7 +10,6 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
         clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
         clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
         clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
-        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
     ],
     null,
     [
@@ -23,8 +22,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                 'recurrence',
                 'text',
                 'categorie',
-                'users',
-                'waiting',
+                'niveau',
             ],
             'attributesMetadata' => [
                 [
@@ -34,8 +32,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                     'recurrence' => $o[4],
                     'text' => $o[5],
                     'categorie' => $o[6],
-                    'users' => $o[7],
-                    'waiting' => $o[8],
+                    'niveau' => $o[7],
                 ],
             ],
         ],

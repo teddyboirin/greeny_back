@@ -2499,28 +2499,7 @@
         <argument>null</argument>
       </call>
       <call method="add">
-        <argument type="service" id=".security.request_matcher.ycL4teN"/>
-        <argument type="collection">
-          <argument>IS_AUTHENTICATED_FULLY</argument>
-        </argument>
-        <argument>null</argument>
-      </call>
-      <call method="add">
-        <argument type="service" id=".security.request_matcher.2wuCEej"/>
-        <argument type="collection">
-          <argument>IS_AUTHENTICATED_FULLY</argument>
-        </argument>
-        <argument>null</argument>
-      </call>
-      <call method="add">
-        <argument type="service" id=".security.request_matcher.KAy9X3W"/>
-        <argument type="collection">
-          <argument>IS_AUTHENTICATED_FULLY</argument>
-        </argument>
-        <argument>null</argument>
-      </call>
-      <call method="add">
-        <argument type="service" id=".security.request_matcher.useW.4Z"/>
+        <argument type="service" id=".security.request_matcher.yOpjeHp"/>
         <argument type="collection">
           <argument>IS_AUTHENTICATED_FULLY</argument>
         </argument>
@@ -3182,17 +3161,8 @@
     <service id=".security.request_matcher.Ud1TEPV" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
       <argument>^/api/login</argument>
     </service>
-    <service id=".security.request_matcher.ycL4teN" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-      <argument>^/api/clinical_cases</argument>
-    </service>
-    <service id=".security.request_matcher.2wuCEej" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-      <argument>^/api/patients</argument>
-    </service>
-    <service id=".security.request_matcher.KAy9X3W" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-      <argument>^/api/commentaires</argument>
-    </service>
-    <service id=".security.request_matcher.useW.4Z" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
-      <argument>^/api/notations</argument>
+    <service id=".security.request_matcher.yOpjeHp" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
+      <argument>^/api/defis</argument>
     </service>
     <service id=".security.request_matcher.Rh3vJBh" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false">
       <argument>^/api/users</argument>
