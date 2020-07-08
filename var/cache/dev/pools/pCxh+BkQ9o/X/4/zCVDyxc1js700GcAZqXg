@@ -1,3 +1,30 @@
 <?php //subresource_operations_06cf21d6b3a726a1deadff4ee9d763bd
 
-return [PHP_INT_MAX, []];
+return [PHP_INT_MAX, [
+    'api_users_defis_get_subresource' => [
+        'property' => 'defis',
+        'collection' => true,
+        'resource_class' => 'App\\Entity\\Defis',
+        'shortNames' => [
+            'Defis',
+            'User',
+        ],
+        'identifiers' => [
+            [
+                'id',
+                'App\\Entity\\User',
+                true,
+            ],
+        ],
+        'operation_name' => 'defis_get_subresource',
+        'route_name' => 'api_users_defis_get_subresource',
+        'path' => '/users/{id}/defis.{_format}',
+        'defaults' => [],
+        'requirements' => [],
+        'options' => [],
+        'host' => '',
+        'schemes' => [],
+        'condition' => '',
+        'controller' => null,
+    ],
+]];

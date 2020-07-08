@@ -1,7 +1,7 @@
 <?php
 
-namespace App\Entity;
 
+namespace App\Entity;
 use ApiPlatform\Core\Annotation\ApiResource;
 use App\Repository\UserRepository;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -9,29 +9,28 @@ use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use phpDocumentor\Reflection\Types\Integer;
 use Symfony\Component\Security\Core\User\UserInterface;
-
+use Symfony\Component\Serializer\Annotation\Groups;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
+use ApiPlatform\Core\Annotation\ApiSubresource;
 /**
  * @ApiResource(
- *
- *     collectionOperations={
- *          "get"={},
- *          "post"={},
- *     },
+ *     normalizationContext={"groups"={"user:read"}},
+ *     denormalizationContext={"groups"={"user:write"}},
  *
  *     itemOperations={
- *          "post_publication"={
- *              "method"="POST",
- *              "path"="/users/{id}/defis",
- *              "controller"=App\Controller\AccomplishedDefis::class,
- *          },
  *          "get"={},
  *          "put"={},
- *          "delete"={},
- *          "patch"={}
+ *          "patch",
+ *          "delete"
+ *     },
+ *
+ *     collectionOperations={
+ *     "post",
+ *     "get"
  *     }
  * )
- *
  * @ORM\Entity(repositoryClass=UserRepository::class)
+ * @UniqueEntity(fields={"email"})
  */
 class User implements UserInterface
 {
@@ -44,6 +43,7 @@ class User implements UserInterface
 
     /**
      * @ORM\Column(type="string", length=180, unique=true)
+     * @Groups({"user:read", "user:write"})
      */
     private $email;
 
@@ -55,23 +55,39 @@ class User implements UserInterface
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
+     * @Groups({"user:write"})
      */
     private $password;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"user:read", "user:write"})
      */
     private $prenom;
 
     /**
      * @ORM\Column(type="string", length=255)
+     * @Groups({"user:read", "user:write"})
      */
     private $nom;
 
     /**
      * @ORM\Column(type="integer")
+     * @Groups({"user:read", "user:write"})
      */
     private $points;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Defis::class, inversedBy="users" , cascade={"persist"})
+     * @Groups({"user:read", "user:write"})
+     * @ApiSubresource
+     */
+    private $defis;
+
+    public function __construct()
+    {
+        $this->defis = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -182,6 +198,32 @@ class User implements UserInterface
     public function setPoints(int $points): self
     {
         $this->points = $points;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Defis[]
+     */
+    public function getDefis(): Collection
+    {
+        return $this->defis;
+    }
+
+    public function addDefi(Defis $defi): self
+    {
+        if (!$this->defis->contains($defi)) {
+            $this->defis[] = $defi;
+        }
+
+        return $this;
+    }
+
+    public function removeDefi(Defis $defi): self
+    {
+        if ($this->defis->contains($defi)) {
+            $this->defis->removeElement($defi);
+        }
 
         return $this;
     }

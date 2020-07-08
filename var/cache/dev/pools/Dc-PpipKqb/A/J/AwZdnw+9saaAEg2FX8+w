@@ -10,6 +10,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
         clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
         clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
         clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
+        clone $p['Symfony\\Component\\Serializer\\Mapping\\AttributeMetadata'],
     ],
     null,
     [
@@ -23,6 +24,7 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                 'text',
                 'categorie',
                 'niveau',
+                'users',
             ],
             'attributesMetadata' => [
                 [
@@ -33,6 +35,38 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                     'text' => $o[5],
                     'categorie' => $o[6],
                     'niveau' => $o[7],
+                    'users' => $o[8],
+                ],
+            ],
+            'groups' => [
+                2 => [
+                    'defis:read',
+                    'defis:write',
+                    'user=read',
+                ],
+                [
+                    'defis:read',
+                    'defis:write',
+                ],
+                [
+                    'defis:read',
+                    'defis:write',
+                ],
+                [
+                    'defis:read',
+                    'defis:write',
+                ],
+                [
+                    'defis:read',
+                    'defis:write',
+                ],
+                [
+                    'defis:read',
+                    'defis:write',
+                ],
+                [
+                    'defis:read',
+                    'defis:write',
                 ],
             ],
         ],

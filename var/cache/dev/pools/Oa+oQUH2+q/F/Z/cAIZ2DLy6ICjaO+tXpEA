@@ -15,35 +15,6 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
             ],
             'itemOperations' => [
                 [
-                    'post_publication' => [
-                        'method' => 'POST',
-                        'path' => '/users/{id}/defis',
-                        'controller' => 'App\\Controller\\AccomplishedDefis',
-                        'input' => null,
-                        'output' => null,
-                        'input_formats' => [
-                            'jsonld' => [
-                                'application/ld+json',
-                            ],
-                            'json' => [
-                                'application/json',
-                            ],
-                            'html' => [
-                                'text/html',
-                            ],
-                        ],
-                        'output_formats' => [
-                            'jsonld' => [
-                                'application/ld+json',
-                            ],
-                            'json' => [
-                                'application/json',
-                            ],
-                            'html' => [
-                                'text/html',
-                            ],
-                        ],
-                    ],
                     'get' => [
                         'input' => null,
                         'output' => null,
@@ -98,9 +69,26 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                             ],
                         ],
                     ],
+                    'patch' => [
+                        'method' => 'PATCH',
+                        'input_formats' => [
+                            'json' => [
+                                'application/merge-patch+json',
+                            ],
+                        ],
+                        'output_formats' => [
+                            'jsonld' => [
+                                'application/ld+json',
+                            ],
+                            'json' => [
+                                'application/json',
+                            ],
+                            'html' => [
+                                'text/html',
+                            ],
+                        ],
+                    ],
                     'delete' => [
-                        'input' => null,
-                        'output' => null,
                         'method' => 'DELETE',
                         'input_formats' => [
                             'jsonld' => [
@@ -125,35 +113,12 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                             ],
                         ],
                     ],
-                    'patch' => [
-                        'input' => null,
-                        'output' => null,
-                        'method' => 'PATCH',
-                        'input_formats' => [
-                            'json' => [
-                                'application/merge-patch+json',
-                            ],
-                        ],
-                        'output_formats' => [
-                            'jsonld' => [
-                                'application/ld+json',
-                            ],
-                            'json' => [
-                                'application/json',
-                            ],
-                            'html' => [
-                                'text/html',
-                            ],
-                        ],
-                    ],
                 ],
             ],
             'collectionOperations' => [
                 [
-                    'get' => [
-                        'input' => null,
-                        'output' => null,
-                        'method' => 'GET',
+                    'post' => [
+                        'method' => 'POST',
                         'input_formats' => [
                             'jsonld' => [
                                 'application/ld+json',
@@ -177,10 +142,8 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                             ],
                         ],
                     ],
-                    'post' => [
-                        'input' => null,
-                        'output' => null,
-                        'method' => 'POST',
+                    'get' => [
+                        'method' => 'GET',
                         'input_formats' => [
                             'jsonld' => [
                                 'application/ld+json',
@@ -217,6 +180,16 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
             ],
             'attributes' => [
                 [
+                    'normalization_context' => [
+                        'groups' => [
+                            'user:read',
+                        ],
+                    ],
+                    'denormalization_context' => [
+                        'groups' => [
+                            'user:write',
+                        ],
+                    ],
                     'input' => null,
                     'output' => null,
                 ],

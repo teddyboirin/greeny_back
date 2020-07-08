@@ -1,0 +1,3 @@
+<?php //route_name_3e84e39f7307074e04e2638b1d0006da
+
+return [PHP_INT_MAX, 'api_defis_get_item'];
