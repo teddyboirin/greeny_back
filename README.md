@@ -27,5 +27,6 @@ Développeur Back-end : Chalal Samir & Teddy Boirin
 
 # Texte explicatif 
 
-La base de données contient 3 tables principales :
+La base de données contient 3 entités principales :
 
+User : cette entité correspond aux utilisateurs du site que devront s'inscrire pour pouvoir y accèder 
