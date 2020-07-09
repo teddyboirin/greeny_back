@@ -192,6 +192,9 @@ return [PHP_INT_MAX, static function () { return \Symfony\Component\VarExporter\
                     ],
                     'input' => null,
                     'output' => null,
+                    'filters' => [
+                        'annotated_app_entity_user_api_platform_core_bridge_doctrine_orm_filter_search_filter',
+                    ],
                 ],
             ],
         ],

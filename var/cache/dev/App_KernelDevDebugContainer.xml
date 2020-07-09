@@ -2525,11 +2525,6 @@
         </argument>
         <argument>null</argument>
       </call>
-      <call method="add">
-        <argument type="service" id=".security.request_matcher.t9nnjYW"/>
-        <argument type="collection"/>
-        <argument>null</argument>
-      </call>
     </service>
     <service id="security.context_listener" class="Symfony\Component\Security\Http\Firewall\ContextListener" public="false">
       <tag name="monolog.logger" channel="security"/>
@@ -3191,7 +3186,6 @@
         <argument>DELETE</argument>
       </argument>
     </service>
-    <service id=".security.request_matcher.t9nnjYW" class="Symfony\Component\HttpFoundation\RequestMatcher" public="false"/>
     <service id="security.command.user_password_encoder" class="Symfony\Bundle\SecurityBundle\Command\UserPasswordEncoderCommand" public="false">
       <tag name="console.command" command="security:encode-password"/>
       <tag name="container.no_preload"/>
@@ -4220,10 +4214,12 @@
       <tag name="container.service_locator"/>
       <argument type="collection">
         <argument key="annotated_app_entity_defis_api_platform_core_bridge_doctrine_orm_filter_search_filter" type="service" id="annotated_app_entity_defis_api_platform_core_bridge_doctrine_orm_filter_search_filter"/>
+        <argument key="annotated_app_entity_user_api_platform_core_bridge_doctrine_orm_filter_search_filter" type="service" id="annotated_app_entity_user_api_platform_core_bridge_doctrine_orm_filter_search_filter"/>
       </argument>
     </service>
     <service id="api_platform.filter_collection_factory" class="ApiPlatform\Core\Api\FilterCollectionFactory" public="false">
       <argument type="collection">
+        <argument>annotated_app_entity_user_api_platform_core_bridge_doctrine_orm_filter_search_filter</argument>
         <argument>annotated_app_entity_defis_api_platform_core_bridge_doctrine_orm_filter_search_filter</argument>
       </argument>
     </service>
@@ -5051,6 +5047,19 @@
     </service>
     <service id="lexik_jwt_authentication.security.jwt_user_provider" class="Lexik\Bundle\JWTAuthenticationBundle\Security\User\JWTUserProvider" public="false">
       <argument></argument>
+    </service>
+    <service id="annotated_app_entity_user_api_platform_core_bridge_doctrine_orm_filter_search_filter" class="ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter" public="false" autowire="true">
+      <tag name="api_platform.filter"/>
+      <argument type="service" id="doctrine"/>
+      <argument>null</argument>
+      <argument type="service" id="api_platform.iri_converter"/>
+      <argument type="service" id="property_accessor"/>
+      <argument type="service" id="logger" on-invalid="ignore"/>
+      <argument type="collection">
+        <argument key="email">exact</argument>
+      </argument>
+      <argument type="service" id="api_platform.identifiers_extractor.cached" on-invalid="ignore"/>
+      <argument type="service" id="serializer.name_converter.metadata_aware" on-invalid="ignore"/>
     </service>
     <service id="annotated_app_entity_defis_api_platform_core_bridge_doctrine_orm_filter_search_filter" class="ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter" public="false" autowire="true">
       <tag name="api_platform.filter"/>
@@ -6090,7 +6099,7 @@
     <service id="api_platform.name_converter" alias="serializer.name_converter.metadata_aware"/>
     <service id="Psr\Log\LoggerInterface" alias="logger" public="false"/>
     <service id=".service_locator.86xOqEA" alias="api_platform.serializer_locator" public="false"/>
-    <service id=".service_locator.WZbja3D" alias="api_platform.filter_locator" public="false"/>
+    <service id=".service_locator.6MrT0nu" alias="api_platform.filter_locator" public="false"/>
     <service id=".service_locator.AjmrG8B" alias=".service_locator.Xl5XdWY" public="false"/>
     <service id="validator" alias="debug.validator" public="true"/>
     <service id="api_platform.metadata.property.metadata_factory.property_info.inner" alias="api_platform.metadata.property.metadata_factory.xml" public="false"/>

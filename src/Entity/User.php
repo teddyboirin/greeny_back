@@ -12,6 +12,9 @@ use Symfony\Component\Security\Core\User\UserInterface;
 use Symfony\Component\Serializer\Annotation\Groups;
 use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use ApiPlatform\Core\Annotation\ApiSubresource;
+use ApiPlatform\Core\Annotation\ApiFilter;
+use ApiPlatform\Core\Bridge\Doctrine\Orm\Filter\SearchFilter;
+
 /**
  * @ApiResource(
  *     normalizationContext={"groups"={"user:read"}},
@@ -31,6 +34,7 @@ use ApiPlatform\Core\Annotation\ApiSubresource;
  * )
  * @ORM\Entity(repositoryClass=UserRepository::class)
  * @UniqueEntity(fields={"email"})
+ * @ApiFilter(SearchFilter::class, properties={"email": "exact"})
  */
 class User implements UserInterface
 {
@@ -83,6 +87,11 @@ class User implements UserInterface
      * @ApiSubresource
      */
     private $defis;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $niveau;
 
     public function __construct()
     {
@@ -224,6 +233,18 @@ class User implements UserInterface
         if ($this->defis->contains($defi)) {
             $this->defis->removeElement($defi);
         }
+
+        return $this;
+    }
+
+    public function getNiveau(): ?string
+    {
+        return $this->niveau;
+    }
+
+    public function setNiveau(string $niveau): self
+    {
+        $this->niveau = $niveau;
 
         return $this;
     }
