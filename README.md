@@ -43,3 +43,5 @@ JWT est le système de token la plus répandue sur le web et donc la plus sure. 
 
 ### Et les autres tables ?
 Les autres tables sont des tables normales où les données sont entrées via une requête POST. Cependant, la table user possède une relation avec la table défis. Ainsi, dans la table users, nous avons un tableau défis, permettant de savoir quels sont les défis que l'utilisateur aura placé en favoris sur son compte personnel.
+
+### A
